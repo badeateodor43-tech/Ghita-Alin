@@ -1,0 +1,89 @@
+import "./globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import FloatingActions from "@/components/FloatingActions";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter"
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://cadastre-topography.ro"),
+  title: "Cadastru și Topografie Ploiești - Ghita Alin | Servicii profesionale",
+  description: "Servicii profesionale de cadastru, intabulare, topografie și releveu în Ploiești și Prahova. Măsurători precise, documentații complete, consultanță clară. Contact: 0745 003 470",
+  keywords: [
+    "cadastru Ploiești",
+    "topografie Ploiești",
+    "intabulare Prahova",
+    "ridicări topografice",
+    "releveu construcții",
+    "cadastru Prahova",
+    "topografie inginerească",
+    "planuri situație",
+    "documentații cadastrale",
+    "măsurători topografice"
+  ],
+  authors: [{ name: "Ghita Alin" }],
+  creator: "Ghita Alin",
+  publisher: "Cadastre and Topography - Ghita Alin",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "ro_RO",
+    url: "https://cadastre-topography.ro",
+    siteName: "Cadastre and Topography - Ghita Alin",
+    title: "Cadastru și Topografie Ploiești - Ghita Alin",
+    description: "Servicii profesionale de cadastru, intabulare și topografie în Ploiești și Prahova. Măsurători precise, documentații complete.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Cadastre and Topography - Ghita Alin",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cadastru și Topografie Ploiești - Ghita Alin",
+    description: "Servicii profesionale de cadastru și topografie în Ploiești și Prahova.",
+    images: ["/og-image.jpg"],
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+  },
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="ro" className={inter.variable}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body className={inter.className}>
+        <Header />
+        {children}
+        <Footer />
+        <FloatingActions />
+      </body>
+    </html>
+  );
+}
